@@ -1,5 +1,5 @@
 //
-//  ZMRadioButton.h
+//  RadioButton.h
 //
 //  Created by Sergey Nikitenko on 3/5/13.
 //  Copyright 2013 Sergey Nikitenko. All rights reserved.
@@ -25,14 +25,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ZMRadioButton : UIButton
+@interface RadioButton : UIButton
 
 // Outlet collection of links to other buttons in the group.
-@property (nonatomic, strong) IBOutletCollection(ZMRadioButton) NSArray* groupButtons;
+@property (nonatomic, strong) IBOutletCollection(RadioButton) NSArray* groupButtons;
 
 // Currently selected radio button in the group.
 // If there are multiple buttons selected then it returns the first one.
-@property (nonatomic, readonly) ZMRadioButton* selectedButton;
+@property (nonatomic, readonly) RadioButton* selectedButton;
+
+/**
+ *  add by klj; radio value
+ */
+@property (nonatomic,strong) NSString* value;
 
 // If selected==YES, then it selects the button and deselects other buttons in the group.
 // If selected==NO, then it deselects the button and if there are only two buttons in the group, then it selects second.
