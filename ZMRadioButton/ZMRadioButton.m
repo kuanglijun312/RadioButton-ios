@@ -1,5 +1,5 @@
 //
-//  RadioButton.m
+//  ZMRadioButton.m
 //
 //  Created by Sergey Nikitenko on 3/5/13.
 //  Copyright 2013 Sergey Nikitenko. All rights reserved.
@@ -23,15 +23,15 @@
 //  THE SOFTWARE.
 //
 
-#import "RadioButton.h"
+#import "ZMRadioButton.h"
 
-@interface RadioButton()
+@interface ZMRadioButton()
 {
 	NSMutableArray* _sharedLinks;
 }
 @end
 
-@implementation RadioButton
+@implementation ZMRadioButton
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -68,7 +68,7 @@
 -(void) setGroupButtons:(NSArray *)buttons
 {
 	if(!_sharedLinks) {
-		for(RadioButton* rb in buttons) {
+		for(ZMRadioButton* rb in buttons) {
 			if(rb->_sharedLinks) {
 				_sharedLinks = rb->_sharedLinks;
 				break;
@@ -79,7 +79,7 @@
 		}
 	}
 
-	BOOL (^btnExistsInList)(NSArray*, RadioButton*) = ^(NSArray* list, RadioButton* rb){
+	BOOL (^btnExistsInList)(NSArray*, ZMRadioButton*) = ^(NSArray* list, ZMRadioButton* rb){
 		for(NSValue* v in list) {
 			if([v nonretainedObjectValue]==rb) {
 				return YES;
@@ -92,13 +92,13 @@
 		[_sharedLinks addObject:[NSValue valueWithNonretainedObject:self]];
 	}
 
-	for(RadioButton* rb in buttons) {
+	for(ZMRadioButton* rb in buttons) {
 		if(rb->_sharedLinks!=_sharedLinks) {
 			if(!rb->_sharedLinks) {
 				rb->_sharedLinks = _sharedLinks;
 			} else {
 				for(NSValue* v in rb->_sharedLinks) {
-					RadioButton* vrb = [v nonretainedObjectValue];
+					ZMRadioButton* vrb = [v nonretainedObjectValue];
 					if(!btnExistsInList(_sharedLinks, vrb)) {
 						[_sharedLinks addObject:v];
 						vrb->_sharedLinks = _sharedLinks;
@@ -124,13 +124,13 @@
 	return nil;
 }
 
--(RadioButton*) selectedButton
+-(ZMRadioButton*) selectedButton
 {
 	if([self isSelected]) {
 		return self;
 	} else {
 		for(NSValue* v in _sharedLinks) {
-			RadioButton* rb = [v nonretainedObjectValue];
+			ZMRadioButton* rb = [v nonretainedObjectValue];
 			if([rb isSelected]) {
 				return rb;
 			}
@@ -161,7 +161,7 @@
 	{
 		selected = !selected;
 		for(NSValue* v in _sharedLinks) {
-			RadioButton* rb = [v nonretainedObjectValue];
+			ZMRadioButton* rb = [v nonretainedObjectValue];
 			if(rb!=self) {
 				[rb setButtonSelected:selected sendControlEvent:sendControlEvent];
 			}
@@ -172,7 +172,7 @@
 -(void) deselectAllButtons
 {
 	for(NSValue* v in _sharedLinks) {
-		RadioButton* rb = [v nonretainedObjectValue];
+		ZMRadioButton* rb = [v nonretainedObjectValue];
 		[rb setButtonSelected:NO sendControlEvent:NO];
 	}
 }
@@ -183,7 +183,7 @@
 		[self setSelected:YES distinct:YES sendControlEvent:NO];
 	} else {
 		for(NSValue* v in _sharedLinks) {
-			RadioButton* rb = [v nonretainedObjectValue];
+			ZMRadioButton* rb = [v nonretainedObjectValue];
 			if(rb.tag == tag) {
 				[rb setSelected:YES distinct:YES sendControlEvent:NO];
 				break;
