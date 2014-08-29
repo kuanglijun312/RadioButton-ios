@@ -16,6 +16,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/kuanglijun312/RadioButton-ios.git", :tag => "0.2" }
 
   s.source_files  = "ZMRadioButton/*.{h,m}"
+  s.framework = 'UIKit'
   s.requires_arc = true
 
 end
