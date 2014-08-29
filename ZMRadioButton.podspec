@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.version      = "0.1"
   s.summary      = "Lightweight RadioButton class for iOS"
   s.homepage     = "https://github.com/kuanglijun312/RadioButton-ios"
-  s.screenshots  = "http://cl.ly/V8Hq/download/Screen%20Shot%202014-04-22%20at%2022.27.42.png"
+  s.screenshots  = "https://camo.githubusercontent.com/6d6fbe3aea745bcb8eac426c2bfe8d1e52ee6901/68747470733a2f2f7261772e6769746875622e636f6d2f6f6e65677261792f526164696f427574746f6e2d696f732f646174612f64656d6f2e676966"
 
   s.license      = { :type => "MIT", :file => "LICENSE" }
   
