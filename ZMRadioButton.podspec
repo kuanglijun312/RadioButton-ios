@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   
   s.platform     = :ios, "5.0"
 
-  s.source       = { :git => "https://github.com/kuanglijun312/RadioButton-ios.git", :tag => "0.1" }
+  s.source       = { :git => "https://github.com/kuanglijun312/RadioButton-ios.git", :tag => "0.2" }
 
   s.source_files  = "ZMRadioButton/*.{h,m}"
   s.requires_arc = true
