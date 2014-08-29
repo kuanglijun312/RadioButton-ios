@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   
   s.platform     = :ios, "5.0"
 
-  s.source       = { :git => "https://github.com/onegray/RadioButton-ios.git", 
+  s.source       = { :git => "https://github.com/kuanglijun312/RadioButton-ios.git", 
   :tag => "0.1" 
   }
 
